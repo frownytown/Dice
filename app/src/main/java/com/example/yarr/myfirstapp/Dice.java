@@ -13,27 +13,25 @@ public class Dice
     private int diceSides;
 
     public static final int DEFAULT_SIZE = 6;
+ 
+     // constructor
+    public Dice(int sides)
+    {
+        if (!setSides(sides))
+            sides = DEFAULT_SIZE;
+    }
 
     // actual dice roll math
     public static int diceRoll(int sidesDie)
     {
         Random rand = new Random();
-        int dieOne;
-        dieOne = rand.nextInt(sidesDie) + 1;
-        return dieOne;
+        return rand.nextInt(sidesDie) + 1;
     }
 
     // modifier math
     public static int addModify(int dieRoll, int modifier)
     {
         return dieRoll + modifier;
-    }
-
-    // constructor
-    public Dice(int sides)
-    {
-        if (!setSides(sides))
-            sides = DEFAULT_SIZE;
     }
 
     // getter
