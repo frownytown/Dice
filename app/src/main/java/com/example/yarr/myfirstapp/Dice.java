@@ -10,7 +10,7 @@ import java.util.Random;
 public class Dice
 {
 
-    private int diceSides;
+    private int diceRollValue;
 
     public static final int DEFAULT_SIZE = 6;
  
@@ -19,6 +19,12 @@ public class Dice
     {
         if (!setSides(sides))
             sides = DEFAULT_SIZE;
+    }
+
+    // default constructor
+    public Dice()
+    {
+        int sides = DEFAULT_SIZE;
     }
 
     // actual dice roll math
@@ -35,14 +41,28 @@ public class Dice
     }
 
     // getter
-    public int getDiceSides() {return diceSides;}
+    public int getDiceRollValue() {return diceRollValue;}
 
     // setter
     public boolean setSides(int sides)
     {
         // validate input function
-        diceSides = sides;
+        diceRollValue = sides;
         return true;
+    }
+
+    // verification that a number has been entered
+    static boolean tryParseInt(String value)
+    {
+        try
+        {
+            Integer.parseInt(value);
+            return true;
+        }
+        catch (NumberFormatException e)
+        {
+            return false;
+        }
     }
 
 

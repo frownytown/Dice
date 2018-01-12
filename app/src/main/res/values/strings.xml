@@ -3,7 +3,7 @@
     <string name="edit_message">How many sides?</string>
     <string name="button_send">Roll!</string>
     <string name="primary_text">Enter how many sides you wish to roll</string>
-    <string name="re_roll">REROLL</string>
+    <string name="re_roll">ROLL</string>
     <string name="results"> </string>
     <string name="results_1"> </string>
     <string name="preset_d6">D6 (6-Sided)</string>
@@ -14,4 +14,5 @@
     <string name="history_text">History</string>
     <string name="number_dice"># of Dice to Roll</string>
     <string name="advanced_activity">Advanced</string>
+    <string name="modifier">Modifier</string>
 </resources>

@@ -13,7 +13,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="424dp"
-        android:text="TextView"
+        android:text="@string/results"
         android:textColor="@android:color/holo_red_dark"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,11 +41,12 @@
         android:inputType="textPersonName|number"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2"
-        app:layout_constraintVertical_bias="0.501" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView6"
@@ -64,6 +65,22 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/editText2"
+        app:layout_constraintVertical_bias="0.746" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/modifier"
+        android:inputType="textPersonName|number"
+        android:text="@string/modifier"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editText2"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
 
 </android.support.constraint.ConstraintLayout>

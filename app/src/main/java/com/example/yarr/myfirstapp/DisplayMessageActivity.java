@@ -43,14 +43,44 @@ public class DisplayMessageActivity extends AppCompatActivity {
     {
         try
         {
+            Dice die = new Dice();
+            // get value from sides text box
             EditText editText = (EditText) findViewById(R.id.editText2);
             String message_initial = editText.getText().toString();
-            int numberEntered = Integer.parseInt(message_initial);
-            int roll = Dice.diceRoll(numberEntered);
-            String message = Integer.toString(roll);
-            TextView textView = findViewById(R.id.textView6);
-            textView.setText(message);
-            System.out.println(message);
+            if (Dice.tryParseInt(message_initial))
+            {
+                int numberEntered = Integer.parseInt(message_initial);
+                if (numberEntered > 0)
+                {
+                    // try to get value from modifier box
+                    EditText editText1 = (EditText) findViewById(R.id.editText3);
+                    String modifier_initial = editText1.getText().toString();
+                    if (Dice.tryParseInt(modifier_initial))
+                    {
+                        int modifierParsed = Integer.parseInt(modifier_initial);
+                        if (modifierParsed > 0)
+                        {
+                            // roll die and add modifier
+                            int dieValue = Dice.diceRoll(numberEntered);
+                            int dieModified = Dice.addModify(dieValue, modifierParsed);
+                            String output = Integer.toString(dieModified);
+                            // out put rolled value in result box
+                            displayRoll(die);
+                        }
+                    }
+                    else
+                    {
+                        // roll as though there is no modifier
+                        int roll = Dice.diceRoll(numberEntered);
+                        // out put rolled value in result box
+                        displayRoll(die);
+                    }
+                }
+                else
+                {
+                    // some error message
+                }
+            }
         }
         catch (RuntimeException e)
         {
@@ -90,6 +120,17 @@ public class DisplayMessageActivity extends AppCompatActivity {
         {
             System.err.println("RuntimeException: " + e.getMessage());
         }
+    }
+
+    // function for displaying total to textView6
+    // other functions create dice object and set total, this function send to screen
+    private void displayRoll(Dice die)
+    {
+        // out put rolled value in result box
+        String message = Integer.toString(die.getDiceRollValue());
+        TextView textView = findViewById(R.id.textView6);
+        textView.setText(message);
+        System.out.println(message);
     }
 
     @Override

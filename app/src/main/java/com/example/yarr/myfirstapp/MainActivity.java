@@ -75,26 +75,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // verify that a number has been entered
-    boolean tryParseInt(String value)
-    {
-        try
-        {
-            Integer.parseInt(value);
-            return true;
-        }
-        catch (NumberFormatException e)
-        {
-            return false;
-        }
-    }
+
 
     // validation and some rolling logic
     public void verifyFunc(String message_initial)
     {
         if (!message_initial.isEmpty())
         {
-            if (tryParseInt(message_initial))
+            if (Dice.tryParseInt(message_initial))
             {
                 int numberEntered = Integer.parseInt(message_initial);
                 if (numberEntered > 0)
